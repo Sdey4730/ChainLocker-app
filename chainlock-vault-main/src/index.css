@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ChainLocker Design System - Decentralized Digital Vault */
+
+@layer base {
+  :root {
+    /* Core Background Colors */
+    --background: 220 30% 6%;
+    --foreground: 210 40% 98%;
+
+    /* Card System */
+    --card: 220 25% 8%;
+    --card-foreground: 210 40% 98%;
+
+    /* Popover */
+    --popover: 220 25% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Brand Colors - Web3 Inspired */
+    --primary: 195 100% 50%;
+    --primary-foreground: 220 30% 6%;
+    --primary-glow: 195 100% 65%;
+
+    /* Secondary - Deep Blue */
+    --secondary: 215 50% 20%;
+    --secondary-foreground: 210 40% 98%;
+
+    /* Muted Tones */
+    --muted: 220 20% 15%;
+    --muted-foreground: 215 20% 65%;
+
+    /* Accent - Cyber Green */
+    --accent: 150 100% 50%;
+    --accent-foreground: 220 30% 6%;
+
+    /* Status Colors */
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --success: 142 76% 36%;
+    --success-foreground: 210 40% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 220 30% 6%;
+
+    /* Interactive Elements */
+    --border: 220 20% 20%;
+    --input: 220 20% 15%;
+    --ring: 195 100% 50%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-cyber: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    --gradient-vault: linear-gradient(180deg, hsl(var(--card)), hsl(var(--muted)));
+
+    /* Shadows & Effects */
+    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.3);
+    --shadow-vault: 0 10px 30px -10px hsl(var(--primary) / 0.2);
+    --shadow-card: 0 4px 20px -4px hsl(var(--primary) / 0.1);
+
+    /* Animation */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .light {
+    /* Light Mode - Clean, Professional */
+    --background: 210 40% 98%;
+    --foreground: 220 30% 6%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 30% 6%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 30% 6%;
+
+    --primary: 195 100% 45%;
+    --primary-foreground: 210 40% 98%;
+    --primary-glow: 195 100% 55%;
+
+    --secondary: 215 30% 95%;
+    --secondary-foreground: 220 30% 6%;
+
+    --muted: 215 20% 92%;
+    --muted-foreground: 215 25% 35%;
+
+    --accent: 150 100% 40%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 20% 85%;
+    --input: 215 20% 92%;
+    --ring: 195 100% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    transition: var(--transition-smooth);
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/50;
+  }
+}
+
+@layer components {
+  /* Gradient Text Effects */
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-cyber {
+    background: var(--gradient-cyber);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glow Effects */
+  .glow-primary {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .glow-vault {
+    box-shadow: var(--shadow-vault);
+  }
+
+  /* Animation Classes */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 20px hsl(var(--primary) / 0.2); }
+  100% { box-shadow: 0 0 40px hsl(var(--primary) / 0.4); }
+}
